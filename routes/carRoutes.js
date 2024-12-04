@@ -1,17 +1,18 @@
 const express = require('express');
-const router = express.Router();
 const carController = require('../controllers/carController');
+const { authenticate } = require('../middleware/authMiddleware');
+const router = express.Router();
 
 /**
  * @swagger
  * /api/cars:
  *   get:
- *     summary: Retrieve a list of cars
+ *     summary: Retrieve all cars
  *     responses:
  *       200:
  *         description: A list of cars
  */
-router.get('/cars', carController.getCars);
+router.get('/cars', authenticate, carController.getCars);
 
 /**
  * @swagger
@@ -28,27 +29,27 @@ router.get('/cars', carController.getCars);
  *     responses:
  *       200:
  *         description: Car details
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Car'
  *       404:
  *         description: Car not found
- *       400:
- *         description: Invalid car ID format
  */
-router.get('/cars/:id', carController.getCarById);
+router.get('/cars/:id', authenticate, carController.getCarById);
 
 /**
  * @swagger
  * /api/cars:
  *   post:
  *     summary: Create a new car
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/definitions/Car'
  *     responses:
  *       201:
  *         description: Car successfully created
  */
-router.post('/cars', carController.createCar);
+router.post('/cars', authenticate, carController.createCar);
 
 /**
  * @swagger
@@ -59,11 +60,19 @@ router.post('/cars', carController.createCar);
  *       - in: path
  *         name: id
  *         required: true
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/definitions/Car'
  *     responses:
  *       200:
  *         description: Car successfully updated
+ *       404:
+ *         description: Car not found
  */
-router.put('/cars/:id', carController.updateCar);
+router.put('/cars/:id', authenticate, carController.updateCar);
 
 /**
  * @swagger
@@ -74,10 +83,15 @@ router.put('/cars/:id', carController.updateCar);
  *       - in: path
  *         name: id
  *         required: true
+ *         description: ID of the car to delete
+ *         schema:
+ *           type: string
  *     responses:
  *       200:
  *         description: Car successfully deleted
+ *       404:
+ *         description: Car not found
  */
-router.delete('/cars/:id', carController.deleteCar);
+router.delete('/cars/:id', authenticate, carController.deleteCar);
 
 module.exports = router;

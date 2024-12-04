@@ -1,0 +1,72 @@
+# Test User Registration
+POST http://localhost:5000/auth/register
+Content-Type: application/json
+
+{
+    "name": "Person1",
+    "email": "person1@example.com",
+    "password": "c4r$1234"
+}
+
+###
+
+# Test User Login
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+    "email": "person1@example.com",
+    "password": "c4r$1234"
+}
+
+###
+
+# Get All Cars (Authenticated)
+GET http://localhost:5000/api/cars
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGZkMzBkNGJiYTAzNjk0ZGM5MmQyOSIsImlhdCI6MTczMzI4NDk5NSwiZXhwIjoxNzMzMjg4NTk1fQ.mF2hfMNz0nbLsdXelX2gHC4Kdm4cOS2zmMBwj24Avzk
+
+###
+
+# Get a Car by ID (Authenticated)
+GET http://localhost:5000/api/cars/6741fb3f7483d96aff14a3cb
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGZkMzBkNGJiYTAzNjk0ZGM5MmQyOSIsImlhdCI6MTczMzI4NDk5NSwiZXhwIjoxNzMzMjg4NTk1fQ.mF2hfMNz0nbLsdXelX2gHC4Kdm4cOS2zmMBwj24Avzk
+###
+
+# Create a Car (Authenticated)
+POST http://localhost:5000/api/cars
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGZkMzBkNGJiYTAzNjk0ZGM5MmQyOSIsImlhdCI6MTczMzI4NDk5NSwiZXhwIjoxNzMzMjg4NTk1fQ.mF2hfMNz0nbLsdXelX2gHC4Kdm4cOS2zmMBwj24Avzk
+
+{
+    "make": "Toyota",
+    "model": "Corolla",
+    "year": 2023,
+    "price": 20000,
+    "color": "White",
+    "mileage": 10000,
+    "available": true
+}
+
+###
+
+# Update a Car by ID (Authenticated)
+PUT http://localhost:5000/api/cars/674fd4d94bba03694dc92d36
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGZkMzBkNGJiYTAzNjk0ZGM5MmQyOSIsImlhdCI6MTczMzI4NDk5NSwiZXhwIjoxNzMzMjg4NTk1fQ.mF2hfMNz0nbLsdXelX2gHC4Kdm4cOS2zmMBwj24Avzk
+
+{
+    "make": "Toyota",
+    "model": "Camry",
+    "year": 2022,
+    "price": 25000,
+    "color": "Black",
+    "mileage": 15000,
+    "available": false
+}
+
+###
+
+# Delete a Car by ID (Authenticated)
+DELETE http://localhost:5000/api/cars/674fd4d94bba03694dc92d36
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGZkMzBkNGJiYTAzNjk0ZGM5MmQyOSIsImlhdCI6MTczMzI4NDk5NSwiZXhwIjoxNzMzMjg4NTk1fQ.mF2hfMNz0nbLsdXelX2gHC4Kdm4cOS2zmMBwj24Avzk
+

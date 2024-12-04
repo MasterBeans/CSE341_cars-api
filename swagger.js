@@ -1,10 +1,9 @@
-const swaggerAutogen = require('swagger-autogen')()
+const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
     info: {
-        title: 'Cars API',
-        description: 'API for managing cars',
-        version: '1.0.0',
+        title: 'Cars and Auth API',
+        description: 'API for managing cars and user authentication.',
     },
     host: 'localhost:5000',
     schemes: ['http'],
@@ -15,17 +14,21 @@ const doc = {
             year: 2023,
             price: 20000,
             color: 'White',
-            mileage: 10000,
+            mileage: 5000,
             available: true,
         },
+        User: {
+            name: 'John Doe',
+            email: 'john.doe@example.com',
+            password: 'securepassword',
+        },
     },
-}
+};
 
-const outputFile = './swagger-output.json'
-const endpointsFiles = ['./server.js']
+const outputFile = './swagger-output.json'; // Ensure this matches your server's expected file
+const endpointsFiles = ['./routes/authRoutes.js', './routes/carRoutes.js']; // Update as needed
 
 swaggerAutogen(outputFile, endpointsFiles, doc).then(() => {
-    if (process.env.NODE_ENV !== 'production') {
-        require('./server')
-    }
-})
+    console.log('Swagger documentation successfully generated!');
+    require('./server'); // Start server after Swagger generation
+});
