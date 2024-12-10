@@ -23,19 +23,21 @@ Content-Type: application/json
 
 # Get All Cars (Authenticated)
 GET http://localhost:5000/api/cars
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGZkMzBkNGJiYTAzNjk0ZGM5MmQyOSIsImlhdCI6MTczMzI4NDk5NSwiZXhwIjoxNzMzMjg4NTk1fQ.mF2hfMNz0nbLsdXelX2gHC4Kdm4cOS2zmMBwj24Avzk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGZkMzBkNGJiYTAzNjk0ZGM5MmQyOSIsImlhdCI6MTczMzgwMjI3OCwiZXhwIjoxNzMzODA1ODc4fQ.aBUoMnoDA_1lOW8g4p35kZpFMRkwgYo9TDQYNnbyBDk
 
 ###
 
 # Get a Car by ID (Authenticated)
-GET http://localhost:5000/api/cars/6741fb3f7483d96aff14a3cb
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGZkMzBkNGJiYTAzNjk0ZGM5MmQyOSIsImlhdCI6MTczMzI4NDk5NSwiZXhwIjoxNzMzMjg4NTk1fQ.mF2hfMNz0nbLsdXelX2gHC4Kdm4cOS2zmMBwj24Avzk
+GET http://localhost:5000/api/cars/6741fb3f7483d96aff14a3cc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGZkMzBkNGJiYTAzNjk0ZGM5MmQyOSIsImlhdCI6MTczMzgwMjI3OCwiZXhwIjoxNzMzODA1ODc4fQ.aBUoMnoDA_1lOW8g4p35kZpFMRkwgYo9TDQYNnbyBDk
+
 ###
 
 # Create a Car (Authenticated)
 POST http://localhost:5000/api/cars
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGZkMzBkNGJiYTAzNjk0ZGM5MmQyOSIsImlhdCI6MTczMzI4NDk5NSwiZXhwIjoxNzMzMjg4NTk1fQ.mF2hfMNz0nbLsdXelX2gHC4Kdm4cOS2zmMBwj24Avzk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGZkMzBkNGJiYTAzNjk0ZGM5MmQyOSIsImlhdCI6MTczMzgwMjI3OCwiZXhwIjoxNzMzODA1ODc4fQ.aBUoMnoDA_1lOW8g4p35kZpFMRkwgYo9TDQYNnbyBDk
+
 
 {
     "make": "Toyota",
@@ -50,9 +52,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGZkMzBkN
 ###
 
 # Update a Car by ID (Authenticated)
-PUT http://localhost:5000/api/cars/674fd4d94bba03694dc92d36
+PUT http://localhost:5000/api/cars/6757b9c5a3770336a63ed340
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGZkMzBkNGJiYTAzNjk0ZGM5MmQyOSIsImlhdCI6MTczMzI4NDk5NSwiZXhwIjoxNzMzMjg4NTk1fQ.mF2hfMNz0nbLsdXelX2gHC4Kdm4cOS2zmMBwj24Avzk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NGZkMzBkNGJiYTAzNjk0ZGM5MmQyOSIsImlhdCI6MTczMzgwMjI3OCwiZXhwIjoxNzMzODA1ODc4fQ.aBUoMnoDA_1lOW8g4p35kZpFMRkwgYo9TDQYNnbyBDk
 
 {
     "make": "Toyota",
